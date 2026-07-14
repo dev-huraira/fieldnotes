@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Selection Colors: warm dusty coral background with dark charcoal text */
+  ::selection {
+    @apply bg-notebook-coral/30 text-notebook-text;
+  }
+  
+  /* Smooth transitions */
+  * {
+    @apply transition-colors duration-150 ease-in-out;
+  }
+
+  /* Custom subtle scrollbar styling to prevent heavy default browser UI chrome */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-notebook-border rounded-full hover:bg-notebook-borderActive;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 200ms ease-out forwards;
+}
